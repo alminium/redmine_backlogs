@@ -21,7 +21,7 @@ gem "icalendar"
 # Choose nokogiri depending on RM version. This is done to avoid conflict with
 # RM 2.3 which pinned nokogiri at "<1.6.0" for group :test.
 if (redmine_version_major == 2 && redmine_version_minor == 3)
-gem "nokogiri", "< 1.6.0"
+gem "nokogiri", "1.6.0"
 else
 gem "nokogiri"
 end
