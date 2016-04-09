@@ -53,7 +53,8 @@ namespace :redmine do
         trackers.each{|name|
           if ! Tracker.find_by_name(name)
             puts "Creating story tracker '#{name}'"
-            default_status = IssueStatus.find_by(:name => 'New')
+#           default_status = IssueStatus.find_by(:name => 'New')
+            default_status = 1
             tracker = Tracker.new(:name => name, :default_status => default_status)
             tracker.save!
           end
@@ -101,7 +102,8 @@ namespace :redmine do
       if ENV['task_tracker'] && ENV['task_tracker'] != ''
         if ! Tracker.find_by_name(ENV['task_tracker'])
           puts "Creating task tracker '#{ENV['task_tracker']}'"
-          default_status = IssueStatus.find_by(:name => 'New')
+#          default_status = IssueStatus.find_by(:name => 'New')
+          default_status = 1
           tracker = Tracker.new(:name => ENV['task_tracker'], :default_status => default_status)
           tracker.save!
         end
@@ -189,7 +191,8 @@ namespace :redmine do
         STDOUT.flush
 
         if (STDIN.gets.chomp!).match("y")
-          default_status = IssueStatus.find_by(:name => 'New')
+#         default_status = IssueStatus.find_by(:name => 'New')
+          default_status = 1
           tracker = Tracker.new(:name => name, :default_status => default_status)
           tracker.save!
           repeat = false

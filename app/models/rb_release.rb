@@ -171,7 +171,7 @@ class RbRelease < ActiveRecord::Base
   validates_presence_of :project_id, :name, :release_start_date, :release_end_date
   validates_inclusion_of :status, :in => RELEASE_STATUSES
   validates_inclusion_of :sharing, :in => RELEASE_SHARINGS
-  validates_length_of :name, :maximum => 64
+#  validates_length_of :name, :maximum => 64
   validate :dates_valid?
 
   scope :open, -> {
